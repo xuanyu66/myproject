@@ -30,13 +30,40 @@ public class Sort {
         }
     }
 
+    static void quickSort(int[] nums, int start, int end){
+        if(start >= end) {
+            return;
+        }
+        int head = start, tail = end, pivot = nums[head + (tail - head) / 2];
+        while(head <= tail){
+            while(nums[head] < pivot){
+                head++;
+            }
+            while(nums[tail] > pivot) {
+                tail--;
+            }
+            if(head < tail){
+                int temp = nums[head];
+                nums[head] = nums[tail];
+                nums[tail] = temp;
+                head ++;
+                tail --;
+            }else{
+                head++;
+            }
+        }
+        quickSort(nums, start, tail);
+        quickSort(nums, head, end);
+    }
+
     public static void main(String[] args) {
         int[] a =new int[20];
         for(int i=0;i<a.length;i++) {
             a[i] = (int) (Math.random() * 100);
         }
         System.out.println(Arrays.toString(a));
-        mergeSort(a,0, a.length - 1);
+        //mergeSort(a,0, a.length - 1);
+        quickSort(a, 0, a.length - 1);
         System.out.println(Arrays.toString(a));
     }
 }
