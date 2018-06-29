@@ -5,6 +5,7 @@ import java.util.Arrays;
  * @version 1.0
  */
 public class Sort {
+
     static void mergeSort(int[] nums, int start, int end){
         if(start >= end){
             return;
@@ -30,7 +31,7 @@ public class Sort {
         }
     }
 
-    static void quickSort(int[] nums, int start, int end){
+    private static void quickSort(int[] nums, int start, int end){
         if(start >= end) {
             return;
         }
@@ -48,7 +49,7 @@ public class Sort {
                 nums[tail] = temp;
                 head ++;
                 tail --;
-            }else{
+            }else if(tail == head){
                 head++;
             }
         }
