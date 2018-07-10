@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * @author leon on 2018/6/29.
@@ -60,7 +61,7 @@ public class Sort {
     public static void main(String[] args) {
         int[] a =new int[20];
         for(int i=0;i<a.length;i++) {
-            a[i] = (int) (Math.random() * 100);
+            a[i] = (int) (new Random().nextInt(100));
         }
         System.out.println(Arrays.toString(a));
         //mergeSort(a,0, a.length - 1);
